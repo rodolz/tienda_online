@@ -1,0 +1,9 @@
+[0806/165345:ERROR:process_reader_win.cc(173)] ResumeThread: La operación se completó correctamente. (0x0)
+[0806/165345:ERROR:process_reader_win.cc(142)] SuspendThread: Acceso denegado. (0x5)
+[0806/165345:ERROR:process_reader_win.cc(142)] SuspendThread: Acceso denegado. (0x5)
+[0806/165345:ERROR:process_reader_win.cc(142)] SuspendThread: Acceso denegado. (0x5)
+[0806/165345:ERROR:process_reader_win.cc(142)] SuspendThread: Acceso denegado. (0x5)
+[0806/165345:ERROR:process_reader_win.cc(142)] SuspendThread: Acceso denegado. (0x5)
+[0806/165345:ERROR:process_reader_win.cc(114)] NtOpenThread: Se ha especificado un identificador de cliente no válido.  (0xc000000b)
+[0806/165345:ERROR:process_reader_win.cc(114)] NtOpenThread: Se ha especificado un identificador de cliente no válido.  (0xc000000b)
+[0806/165345:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess, ntstatus=-1073741558
