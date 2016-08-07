@@ -43,7 +43,7 @@
 			<?php 
 				//Todos los productos
 				foreach($p_columnas as $p_columna):
-					echo "<li><img id=".$p_columna['id']." src='{$p_columna['foto']}' alt='Imagen' role='button'><br/><span>".$p_columna['prod_nombre']."</span><br/><span>$".$p_columna['precio']."</span></li>";
+					echo "<li><img id=".$p_columna['id']." src='img/productos/{$p_columna['foto']}' alt='Imagen' role='button'><br/><span>".$p_columna['prod_nombre']."</span><br/><span>$".$p_columna['precio']."</span></li>";
 				endforeach; 
 			?>	
 		</ul>

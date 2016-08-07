@@ -38,20 +38,40 @@
 
   <div class="row">
   <center>
-  <div class="col-md-8">
+  <div class="col-md-7">
     <div class="thumbnail">
-      <img src="<?php echo $producto['foto'];?>" alt="...">
+      <img src="<?php echo "img/productos/{$producto['foto']}";?>" alt="...">
       <div class="caption">
-        <h3><?php echo $producto['prod_nombre'];?></h3>
-        <p><?php echo $producto['descripcion'];?></p>
-        <p>
-          <label>Precio (c/u): </label>
-          <?php echo $producto['precio'];?>
-        </p>
-        <p>
-          <label>Cantidad: </label>
-          <input type="number" id="<?php echo $producto['id']; ?>" max="<?php echo $producto['cant_disp'];?>" min="1" value="1"></p>
-        <p>
+
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><?php echo $producto['prod_nombre'];?></h3>
+        </div>
+        <div class="panel-body">
+        <div class="well">
+          <?php echo $producto['descripcion'];?>
+        </div>
+          
+          <h1>
+          <span class="label label-default">
+            Precio (c/u):<?php echo $producto['precio'];?>
+          </span>
+          </h1>
+          <hr>
+          <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+          <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">Cantidad</span> 
+            <input type="number" id="<?php echo $producto['id']; ?>" max="<?php echo $producto['cant_disp'];?>" min="1" maxlength="3" value="1" class="form-control" aria-describedby="basic-addon1">
+          </div>
+          </div>
+          <div class="col-md-5"></div>
+          </div> 
+        </div>
+      </div>
+
+        
       </div>
     </div>
     <div>
