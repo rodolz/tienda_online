@@ -1,0 +1,109 @@
+//detalle_producto
+
+<?php
+	include 'includes/dbconfig.php';
+	include 'includes/session.php';
+
+	$cantidadTotal = 0;
+	$precioTotal = 0;
+
+	$session->crear_sesion("carrito",true);
+
+	if(isset($_POST['agregar_item'])){
+		$id = $_POST['idProducto'];
+		$cant_prod = $_POST['cantProducto'];
+		$session->agregar_item("carrito",$id,$cant_prod);
+	}
+
+	if (isset($_GET['q'])) {
+		$idProducto = $_GET['q'];
+		// echo "GET exitoso, id = ".$idProducto;
+		$producto = $crud->buscar_por_id($idProducto);
+	}
+	else{
+		return false;
+	}
+	if (!empty($_SESSION['carrito'])) {
+		$arrayIds = array();
+		foreach ($_SESSION['carrito'] as $key => $value) {
+			//cargamos el array con todos los ids
+			array_push($arrayIds,$key);
+		}
+		//armamos el query en una variable string con los ids separado con (,)
+		$idIN = implode(',',$arrayIds);
+		//funcion para obtener todos los productos segundo los id's
+		$columnas = $crud->buscar_por_ids($idIN);
+	}
+?>
+<?php require("header.php"); ?> 
+	<main>
+
+  <div class="row">
+  <center>
+  <div class="col-md-8">
+    <div class="thumbnail">
+      <img src="<?php echo $producto['foto'];?>" alt="...">
+      <div class="caption">
+        <h3><?php echo $producto['prod_nombre'];?></h3>
+        <p><?php echo $producto['descripcion'];?></p>
+        <p>
+          <label>Precio (c/u): </label>
+          <?php echo $producto['precio'];?>
+        </p>
+        <p>
+          <label>Cantidad: </label>
+          <input type="number" id="<?php echo $producto['id']; ?>" max="<?php echo $producto['cant_disp'];?>" min="1" value="1"></p>
+        <p>
+      </div>
+    </div>
+    <div>
+        <a class="cd-add-to-cart">Agregar al carrito</a>
+      </div>
+  </div>
+  </center>
+</div>
+
+	</main>
+<?php require("footer.php"); ?> 
+
+//productos
+
+<?php
+	include 'includes/dbconfig.php';
+	include 'includes/session.php';
+	$cantidadTotal = 0;
+	$precioTotal = 0;
+
+	$session->crear_sesion("carrito",true);
+
+	if (isset($_POST['borrar_item'])) {
+		$id = $_POST['idProducto'];
+		$session->eliminar_item("carrito",$id);
+	}
+
+	if (!empty($_SESSION['carrito'])) {
+		$arrayIds = array();
+		foreach ($_SESSION['carrito'] as $key => $value) {
+			//cargamos el array con todos los ids
+			array_push($arrayIds,$key);
+		}
+		//armamos el query en una variable string con los ids separado con (,)
+		$idIN = implode(',',$arrayIds);
+		//funcion para obtener todos los productos segundo los id's
+		$columnas = $crud->buscar_por_ids($idIN);
+	}
+
+?>
+<?php require("header.php"); ?>  
+	<main>
+		<ul id="cd-gallery-items" class="cd-container">
+			<?php 
+				//Todos los productos
+				$p_columnas = $crud->buscar_todo();
+				foreach($p_columnas as $p_columna):
+					echo "<li><img id=".$p_columna['id']." src='{$p_columna['foto']}' alt='Preview image'><br/><span>".$p_columna['prod_nombre']."</span></li>";
+				endforeach; 
+			?>	
+		</ul>
+	</main>	
+<?php require("footer.php"); ?> 
