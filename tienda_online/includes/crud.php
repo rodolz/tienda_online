@@ -11,7 +11,11 @@ class Crud{
 	public function buscar_todo(){
 		$query = $this->db->prepare("SELECT * FROM productos");
 		$query->execute();
-		$columnas=$query->fetchAll();
+		$columnas = array();
+		//en la posicion 0 se encuentran los registros
+		$columnas[0] = $query->fetchAll();
+		//en la posicion 1 esta la cantidad de filas que se obtuvieron
+		$columnas[1] = $query->rowCount();
 		return $columnas;
 	}
 
@@ -37,6 +41,13 @@ class Crud{
 				$producto = $columna;
 			}
 			return $producto;
+	}
+
+	public function buscar_x_limite($pagina,$items){
+		$query = $this->db->prepare("SELECT * FROM productos LIMIT ".($pagina-1) * $items.",".$items);
+		$query->execute();
+		$columnas = $query->fetchAll();
+		return $columnas;
 	}
 }
 ?>

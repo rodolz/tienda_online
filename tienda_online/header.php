@@ -2,7 +2,9 @@
 <html>
 <head>
 	<title>Productos - Tienda Online</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="js/bootstrap.min.css"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/js.js"></script>
 	<script src="js/main.js"></script> <!-- Modernizr -->
