@@ -40,6 +40,13 @@
 	</div>
 	<br/>
 	<div id="body">
+    <!-- div de la imagen-->
+    <div id="imagen">
+      <p>
+      <label>Foto</label>
+        <?php echo $producto['foto'];?>
+      </p>
+    </div>
 		<div id="descripcion">
 			<p>
 			<label>Descripcion: </label>
