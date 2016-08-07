@@ -9,7 +9,7 @@
 
 	if(isset($_GET['pagina'])){
 		$pagina = intval($_GET['pagina']);
-	}
+	} 
 
 	$p_columnas = $crud->buscar_x_limite($pagina,$items_x_pagina);
 	$array_todos = $crud->buscar_todo();
@@ -36,40 +36,41 @@
 	}
 
 ?>
-<?php require("header.php"); ?>  
+<?php require_once("header.php"); ?>  
 	<main>
+		<h1>Productos Disponibles</h1><br/>
 		<ul id="cd-gallery-items" class="cd-container">
 			<?php 
 				//Todos los productos
-				// $p_columnas = $crud->buscar_todo();
 				foreach($p_columnas as $p_columna):
-					echo "<li><img id=".$p_columna['id']." src='img/thumb.jpg' alt='Preview image'><br/><span>".$p_columna['prod_nombre']."</span></li>";
+					echo "<li><img id=".$p_columna['id']." src='{$p_columna['foto']}' alt='Imagen' role='button'><br/><span>".$p_columna['prod_nombre']."</span><br/><span>$".$p_columna['precio']."</span></li>";
 				endforeach; 
 			?>	
 		</ul>
 		<nav aria-label="Page navigation">
-		  <ul class="pagination">
-		  <?php if($pagina > 1){ ?>
-		    <li>
-		      <a href="productos.php?pagina=<?php echo $pagina-1;?>" aria-label="Previous">
-		        <span aria-hidden="true">&laquo;</span>
-		      </a>
-		    </li><?php } ?>
-				<?php for($i = 0;$i<$num_paginas;$i++){ 
+			<ul class="pagination">
+				<?php if($pagina > 1){ ?>
+				<li>
+					<a href="productos.php?pagina=<?php echo $pagina-1;?>" aria-label="Previous">
+					<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+			<?php }
+				for($i = 0;$i<$num_paginas;$i++){ 
 						$estilo = "";
-						if ($pagina == $i+1) {
-							$estilo = "class=\"active\"";
-						}
-		    		?>
-		    	<li <?php echo $estilo; ?>><a href="productos.php?pagina=<?php echo $i+1; ?>"><?php echo $i+1;?></a></li>
-		    	<?php } ?>
-			<?php if($pagina <= $num_paginas-1 ){ ?>
-		    <li>
-		      <a href="productos.php?pagina=<?php echo $pagina+1;?>" aria-label="Next">
-		        <span aria-hidden="true">&raquo;</span>
-		      </a>
-		    </li><?php } ?>
-		  </ul>
+							if ($pagina == $i+1) {
+								$estilo = "class=\"active\"";
+							}
+				?>
+			<li <?php echo $estilo; ?>><a href="productos.php?pagina=<?php echo $i+1; ?>"><?php echo $i+1;?></a></li>
+				<?php } ?>
+				<?php if($pagina <= $num_paginas-1 ){ ?>
+					<li>
+						<a href="productos.php?pagina=<?php echo $pagina+1;?>" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+						</a>
+					</li><?php } ?>
+			</ul>
 		</nav>
 	</main>	
-<?php require("footer.php"); ?> 
+<?php require_once("footer.php"); ?> 

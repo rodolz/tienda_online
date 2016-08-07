@@ -17,7 +17,7 @@
 	<header>
 		<div id="logo"><img src="img/cd-logo.svg" alt="Homepage"></div>
 		<div id="cd-hamburger-menu"><a class="cd-img-replace" href="#0">Menu</a></div>
-		<div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
+		<div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Carrito</a></div>
 	</header>
 
 	<nav id="main-nav">

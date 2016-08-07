@@ -13,8 +13,8 @@
 		$session->agregar_item("carrito",$id,$cant_prod);
 	}
 
-	if (isset($_GET['q'])) {
-		$idProducto = $_GET['q'];
+	if (isset($_GET['id'])) {
+		$idProducto = $_GET['id'];
 		// echo "GET exitoso, id = ".$idProducto;
 		$producto = $crud->buscar_por_id($idProducto);
 	}
@@ -33,36 +33,33 @@
 		$columnas = $crud->buscar_por_ids($idIN);
 	}
 ?>
-<?php require("header.php"); ?> 
+<?php require_once("header.php"); ?> 
 	<main>
-	<div id="header">
-		<h1><?php echo $producto['prod_nombre'];?></h1>
-	</div>
-	<br/>
-	<div id="body">
-		<div id="descripcion">
-			<p>
-			<label>Descripcion: </label>
-				<?php echo $producto['descripcion'];?>
-			</p>
-		</div>
-		<div id="precio">
-			<p>
-			<label>Precio (c/u): </label>
-				<?php echo $producto['precio'];?>
-			</p>
-		</div>
-		<div id="cantidad">
-			<p><label>Cantidad: </label><?php
-				echo "<select id=".$producto['id'].">";
-					for ($i=1; $i <= $producto['cant_disp']; $i++) { 
-						echo "<option value=".$i.">".$i."</option>";
-					}
-				echo "</select>";?>
-			</p>
-		</div>
-	<div>
-		<a class="cd-add-to-cart">Agregar al carrito</a>
-	</div>
+
+  <div class="row">
+  <center>
+  <div class="col-md-8">
+    <div class="thumbnail">
+      <img src="<?php echo $producto['foto'];?>" alt="...">
+      <div class="caption">
+        <h3><?php echo $producto['prod_nombre'];?></h3>
+        <p><?php echo $producto['descripcion'];?></p>
+        <p>
+          <label>Precio (c/u): </label>
+          <?php echo $producto['precio'];?>
+        </p>
+        <p>
+          <label>Cantidad: </label>
+          <input type="number" id="<?php echo $producto['id']; ?>" max="<?php echo $producto['cant_disp'];?>" min="1" value="1"></p>
+        <p>
+      </div>
+    </div>
+    <div>
+        <a class="cd-add-to-cart" role="button">Agregar al carrito</a>
+      </div>
+  </div>
+  </center>
+</div>
+
 	</main>
-<?php require("footer.php"); ?> 
+<?php require_once("footer.php"); ?> 

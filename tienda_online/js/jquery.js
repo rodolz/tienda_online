@@ -1,8 +1,8 @@
 $(document).ready(function () {
 	//boton de agregar al carrito, se agrega el iditem y cantprod en $_SESSION['carrito']
 	$('.cd-add-to-cart').click(function(){
-		var productoId = $('select').attr('id');
-		var productoCant = $('select option:selected').val();
+		var productoId = $('input').attr('id');
+		var productoCant = $('input').val();
 		$.ajax({	
 			type : 'POST',
 			url  : 'detalles_producto.php',
@@ -25,7 +25,7 @@ $(document).ready(function () {
 	$('img[id]').click(function(){
 		var idProducto = $(this).attr('id');
 		if (idProducto !== null) {
-			window.location.href = "detalles_producto.php" +"?q="+idProducto;
+			window.location.href = "detalles_producto.php" +"?id="+idProducto;
 		}
 		else{
 			alert("Error");
@@ -53,6 +53,6 @@ $(document).ready(function () {
 				console.log( errorThrown );
 				alert("error");
 			}
-		});	
+		});
 	});
 });
