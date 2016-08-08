@@ -3,6 +3,10 @@ $(document).ready(function () {
 	$('.cd-add-to-cart').click(function(){
 		var productoId = $('input').attr('id');
 		var productoCant = $('input').val();
+		$("input[id="+productoId+"]").attr({
+			"max" : 100,        // substitute your own
+			"min" : 1          // values (or variables) here
+			});
 		$.ajax({	
 			type : 'POST',
 			url  : 'detalles_producto.php',

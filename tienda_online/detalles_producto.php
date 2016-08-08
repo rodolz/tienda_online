@@ -35,7 +35,6 @@
 ?>
 <?php require_once("header.php"); ?> 
 	<main>
-
   <div class="row">
   <center>
   <div class="col-md-7">
@@ -62,8 +61,11 @@
           <div class="col-md-4"></div>
           <div class="col-md-4">
           <div class="input-group">
+            <form>
             <span class="input-group-addon" id="basic-addon1">Cantidad</span> 
             <input type="number" id="<?php echo $producto['id']; ?>" max="<?php echo $producto['cant_disp'];?>" min="1" maxlength="3" value="1" class="form-control" aria-describedby="basic-addon1">
+            <input type="submit" name="">
+            </form>
           </div>
           </div>
           <div class="col-md-5"></div>
