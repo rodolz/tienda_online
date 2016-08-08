@@ -61,11 +61,8 @@
           <div class="col-md-4"></div>
           <div class="col-md-4">
           <div class="input-group">
-            <form>
             <span class="input-group-addon" id="basic-addon1">Cantidad</span> 
-            <input type="number" id="<?php echo $producto['id']; ?>" max="<?php echo $producto['cant_disp'];?>" min="1" maxlength="3" value="1" class="form-control" aria-describedby="basic-addon1">
-            <input type="submit" name="">
-            </form>
+            <input type="number" id="<?php echo $producto['id']; ?>" value="1" aria-describedby="basic-addon1">
           </div>
           </div>
           <div class="col-md-5"></div>
@@ -84,4 +81,21 @@
 </div>
 
 	</main>
+
+  <script type="text/javascript">
+    var limite = parseInt(<?php echo $producto['cant_disp'];?>);
+    var inputCantidad = document.getElementById(<?php echo $producto['id'];?>);
+    inputCantidad.onchange = inputCheck;
+    console.log(inputCantidad, limite);
+
+    function inputCheck (){
+      let value = parseInt(inputCantidad.value);
+      if (value <= 0) {
+        inputCantidad.value = "1";
+      } else if (value > limite) {
+        inputCantidad.value = "1";
+        alert('Inventario insuficiente');
+      }
+    }
+  </script>
 <?php require_once("footer.php"); ?> 
