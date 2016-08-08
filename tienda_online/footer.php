@@ -19,7 +19,75 @@
 			<p>Total <span id="precio_total"><?php echo "$".$precioTotal; ?></span></p>
 		</div> <!-- cd-cart-total -->
 
-		<a href="#0" class="checkout-btn">Pagar</a>
-	</div> <!-- cd-cart -->
+		<a href="#0" id="pagar" data-toggle="modal" data-target="#myModal" class="checkout-btn">Pagar</a>
+		</div> <!-- cd-cart -->
+	<div class="container">
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog modal-lg">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Orden de compra</h4>
+	          </div>
+	          <div class="modal-body">
+				<form class="form-horizontal">
+				  <div class="form-group">
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="nombre" placeholder="Nombre(s)">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="apellido" placeholder="Apellido(s)">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-10">
+				      <input type="email" class="form-control" id="email" placeholder="Email">
+				    </div>
+				  </div>
+				  <hr/>
+				  <div class="form-group">
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="direccion" placeholder="Direccion">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="pais" placeholder="Pais">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="telefono" placeholder="Telefono">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <div class="checkbox">
+				        <label>
+				          <input type="checkbox"> Remember me
+				        </label>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-offset-2 col-sm-10">
+				      <button type="submit" class="btn btn-default">Comprar</button>
+				    </div>
+				  </div>
+				</form>
+				</div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 </html>

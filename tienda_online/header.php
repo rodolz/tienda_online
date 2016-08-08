@@ -4,7 +4,10 @@
   <meta charset="utf-8">
 	<title>Productos - Tienda Online</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	<script src="js/jquery.blockUI.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/js.js"></script>

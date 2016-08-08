@@ -60,3 +60,11 @@ $(document).ready(function () {
 		});
 	});
 });
+
+// $(document).ready(function() { 
+//     $('#pagar').click(function() { 
+//         $.blockUI({ message: 'Procesando su consulta' }); 
+ 
+//         setTimeout($.unblockUI, 2000); 
+//     }); 
+// }); 
