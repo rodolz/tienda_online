@@ -29,7 +29,16 @@ class Session{
 			return false;
 		}
 	}
-
+	public function vaciar_carrito($nombre_sesion){
+		if(isset($_SESSION[$nombre_sesion])){
+			//Segun el iditem borramos el item en la variable de session
+			unset($_SESSION[$nombre_sesion]);
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	public function agregar_item($nombre_sesion,$id_item,$cant_item){
 		if(isset($_SESSION[$nombre_sesion])){
 			$_SESSION[$nombre_sesion][$id_item] = $cant_item;

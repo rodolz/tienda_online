@@ -59,12 +59,18 @@ $(document).ready(function () {
 			}
 		});
 	});
+	$('#pagar').click(function(){
+			var num_prod = $('li[id]').size();
+			if(num_prod == 0){
+				$('#error').html('<div class="alert alert-danger"><strong>Error!</strong> No tiene items en su carrito.</div>');
+				return false;
+			}
+	});
+	$('#form-compra').submit(function(){
+		event.preventDefault();
+	    $.post("productos.php", {vaciar_carrito: 1}, function(data, status){					
+			$("#respuestas").html("<div class='alert alert-success fade in'><strong>Compra exitosa!</strong> Se le enviara un email con los datos de su compra.</div>");
+			setTimeout(function(){ window.location.href = "productos.php"; }, 3000);
+   		 });
+	});
 });
-
-// $(document).ready(function() { 
-//     $('#pagar').click(function() { 
-//         $.blockUI({ message: 'Procesando su consulta' }); 
- 
-//         setTimeout($.unblockUI, 2000); 
-//     }); 
-// }); 

@@ -20,6 +20,8 @@
 		</div> <!-- cd-cart-total -->
 
 		<a href="#0" id="pagar" data-toggle="modal" data-target="#myModal" class="checkout-btn">Pagar</a>
+		<br/>
+		<div id="error"></div>
 		</div> <!-- cd-cart -->
 	<div class="container">
 	  <!-- Modal -->
@@ -31,8 +33,9 @@
 	          <h4 class="modal-title">Orden de compra</h4>
 	          </div>
 	          <div class="modal-body">
+	          <div id="respuestas"></div>
 
-				<form class="form-horizontal">
+				<form id="form-compra" class="form-horizontal">
 
         <div class="row">
 
@@ -110,7 +113,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-default">Comprar</button>
+              <button type="submit" class="btn btn-primary">Comprar</button>
             </div>
           </div>
           </div>
@@ -129,5 +132,6 @@
 	    </div>
 	  </div>
 	</div>
+
 </body>
 </html>

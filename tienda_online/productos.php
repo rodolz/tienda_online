@@ -22,6 +22,9 @@
 		$id = $_POST['idProducto'];
 		$session->eliminar_item("carrito",$id);
 	}
+	if (isset($_POST['vaciar_carrito'])) {
+		$session->vaciar_carrito("carrito");
+	}
 
 	if (!empty($_SESSION['carrito'])) {
 		$arrayIds = array();
