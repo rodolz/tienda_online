@@ -42,7 +42,7 @@
       <img src="<?php echo "img/productos/{$producto['foto']}";?>" alt="...">
       <div class="caption">
 
-      <div class="panel panel-info">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           <h3 class="panel-title"><?php echo $producto['prod_nombre'];?></h3>
         </div>
@@ -52,8 +52,8 @@
         </div>
           
           <h1>
-          <span class="label label-default">
-            Precio (c/u):<?php echo $producto['precio'];?>
+          <span class="label label-primary">
+            Precio (c/u): $<?php echo $producto['precio'];?>
           </span>
           </h1>
           <hr>
