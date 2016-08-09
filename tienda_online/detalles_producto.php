@@ -62,7 +62,7 @@
           <div class="col-md-4">
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">Cantidad</span> 
-            <input type="number" id="<?php echo $producto['id']; ?>" value="1" aria-describedby="basic-addon1">
+            <input type="number" id="<?php echo $producto['id']; ?>" value="1" max="<?php echo $producto['cant_disp'];?>" min="1" aria-describedby="basic-addon1">
           </div>
           </div>
           <div class="col-md-5"></div>
@@ -80,21 +80,20 @@
   </center>
 </div>
 
-	</main>
+  </main>
 
   <script type="text/javascript">
-    var limite = parseInt(<?php echo $producto['cant_disp'];?>);
-    var inputCantidad = document.getElementById(<?php echo $producto['id'];?>);
+    var id = <?php echo $producto['id'];?>;
+    var inputCantidad = document.getElementById(id);
     inputCantidad.onchange = inputCheck;
-    console.log(inputCantidad, limite);
 
     function inputCheck (){
       let value = parseInt(inputCantidad.value);
-      if (value <= 0) {
-        inputCantidad.value = "1";
-      } else if (value > limite) {
+      if (inputCantidad.validity.rangeOverflow) {
         inputCantidad.value = "1";
         alert('Inventario insuficiente');
+      } else if (inputCantidad.validity.rangeUnderflow) {
+        inputCantidad.value = "1";
       }
     }
   </script>

@@ -4,7 +4,7 @@
 	$db_host = "localhost";
 	$db_name = "tienda_online";
 	$db_user = "root";
-	$db_pass = "";
+	$db_pass = "Root1234*";
 	
 	try{
 		
